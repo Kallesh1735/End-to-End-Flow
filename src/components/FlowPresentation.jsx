@@ -67,23 +67,23 @@ const STAGES = [
     accent: 'from-emerald-500/20 to-slate-900/60'
   },
   {
-    title: '10. Easebuzz processes mandate',
-    desc: 'Mandate request is sent to Easebuzz for payment rail orchestration.',
-    owner: 'Easebuzz',
+    title: '10. Bank processes mandate',
+    desc: 'Mandate request is sent to the Bank for payment rail orchestration.',
+    owner: 'Bank',
     icon: Landmark,
     accent: 'from-cyan-500/20 to-slate-900/60'
   },
   {
-    title: '11. NPCI validates',
-    desc: 'Banking network validation runs and mandate status is returned asynchronously.',
-    owner: 'NPCI / Bank',
+    title: '11. Bank validates mandate',
+    desc: 'Bank validation runs and mandate status is returned asynchronously.',
+    owner: 'Bank',
     icon: ShieldCheck,
     accent: 'from-slate-500/20 to-slate-900/60'
   },
   {
     title: '12. UMRN created',
     desc: 'The mandate receives a unique reference for lifecycle and audit tracking.',
-    owner: 'Mandate Service',
+    owner: 'Bank',
     icon: CheckCircle2,
     accent: 'from-indigo-500/20 to-slate-900/60'
   },
@@ -103,8 +103,8 @@ const STAGES = [
   },
   {
     title: '15. Debit executes',
-    desc: 'Debit request is sent through the payment partner to the banking network.',
-    owner: 'Payment Service',
+    desc: 'Debit request is sent through the Bank payment rails.',
+    owner: 'Bank',
     icon: Landmark,
     accent: 'from-emerald-500/20 to-slate-900/60'
   },
@@ -139,16 +139,20 @@ function StepCard({ step, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.45, delay: index * 0.03 }}
-      className={`rounded-[22px] sm:rounded-[28px] border border-white/10 bg-gradient-to-br ${step.accent} shadow-[0_30px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl`}
+      className={`relative overflow-hidden rounded-[18px] sm:rounded-[24px] border border-white/10 bg-gradient-to-br ${step.accent} shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl`}
     >
-      <div className="p-4 sm:p-6 md:p-7 flex gap-3 sm:gap-4 md:gap-6 items-start">
-        <div className="shrink-0 w-11 h-11 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/8 border border-white/10 flex items-center justify-center text-cyan-200 shadow-lg shadow-cyan-500/10">
+      <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-cyan-400 via-indigo-400 to-transparent opacity-70" />
+      <div className="p-4 sm:p-5 md:p-6 flex gap-3 sm:gap-4 md:gap-5 items-start">
+        <div className="shrink-0 w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-slate-950/40 border border-white/10 flex items-center justify-center text-cyan-200 shadow-lg shadow-cyan-500/10">
           <Icon size={20} className="sm:hidden" />
           <Icon size={24} className="hidden sm:block" />
         </div>
         <div className="flex-1">
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
-            <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white leading-snug">{step.title}</h3>
+            <span className="inline-flex items-center justify-center min-w-9 h-9 px-3 rounded-full bg-white/8 text-white border border-white/10 text-sm font-semibold">
+              {step.title.split('.')[0]}
+            </span>
+            <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white leading-snug">{step.title.replace(/^\d+\.\s*/, '')}</h3>
             <span className="text-[10px] sm:text-[11px] tracking-[0.16em] sm:tracking-[0.22em] uppercase px-2.5 py-1 rounded-full bg-white/8 text-slate-300 border border-white/10">{step.owner}</span>
           </div>
           <p className="text-sm md:text-base text-slate-300 leading-6 max-w-3xl">{step.desc}</p>
@@ -225,10 +229,10 @@ export default function FlowPresentation() {
 
         <section className="relative max-w-5xl mx-auto px-4 sm:px-6 md:px-10 pb-14 md:pb-24">
           <div className="rounded-[28px] sm:rounded-[36px] border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_40px_100px_rgba(0,0,0,0.45)] p-4 sm:p-6 md:p-10">
-            <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center justify-between gap-3 sm:gap-4">
+              <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center justify-between gap-3 sm:gap-4">
               <div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">Start to End Flowchart</h2>
-                <p className="mt-2 text-sm sm:text-base text-slate-400 max-w-2xl leading-6 sm:leading-7">Each block represents one stage in the collection workflow. The sequence is intentionally linear so stakeholders can follow the full chain without seeing a portal UI.</p>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">Diagrammatic Flow</h2>
+                <p className="mt-2 text-sm sm:text-base text-slate-400 max-w-2xl leading-6 sm:leading-7">A visual flow diagram from invoice creation to settlement, using generic Bank language only.</p>
               </div>
             </div>
 

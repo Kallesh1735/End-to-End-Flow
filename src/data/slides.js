@@ -23,8 +23,8 @@ export const SLIDES = [
       'Workflow Engine (Platform)',
       'Buyer Authentication Layer',
       'Buyer Dashboard (presentation-only)',
-      'Payment Partner (Easebuzz)',
-      'NPCI / Banking Network',
+      'Bank',
+      'Banking Network',
       'Settlement + Callbacks',
       'ERP Sync Layer'
     ]
@@ -70,12 +70,12 @@ export const SLIDES = [
   {
     id: 'mandate-scheduler',
     title: 'Mandate & Scheduler',
-    bullets: ['eMandate lifecycle (Pending → Approved → UMRN)', 'Send to Easebuzz', 'Scheduler checks due dates & rules', 'Pre-debit validation']
+    bullets: ['eMandate lifecycle (Pending → Approved → UMRN)', 'Send to Bank', 'Scheduler checks due dates & rules', 'Pre-debit validation']
   },
   {
     id: 'payment-exec',
     title: 'Payment Execution & Settlement',
-    bullets: ['Trigger debit via Easebuzz', 'NPCI validation', 'UMRN & UTR mapping', 'Settlement callbacks and reconciliation']
+    bullets: ['Trigger debit via Bank', 'Bank validation', 'UMRN & UTR mapping', 'Settlement callbacks and reconciliation']
   },
   {
     id: 'microservices',
@@ -95,7 +95,7 @@ export const SLIDES = [
   {
     id: 'edge-cases',
     title: 'Edge Cases & Controls',
-    bullets: ['Duplicate invitations', 'Existing mandate reuse', 'Partial payments', 'Dispute handling', 'NPCI delays & async polling']
+    bullets: ['Duplicate invitations', 'Existing mandate reuse', 'Partial payments', 'Dispute handling', 'Bank delays & async polling']
   },
   {
     id: 'ops-scale',

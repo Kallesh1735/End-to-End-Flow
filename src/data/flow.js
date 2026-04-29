@@ -11,12 +11,12 @@ export const TIMELINE = [
   { id: 10, title: 'Buyer dashboard opens', desc: 'Presentation dashboard reveals pending actions in a controlled view.', owner: 'Buyer', icon: 'grid' },
   { id: 11, title: 'Pending invoices visible', desc: 'Buyer sees invoices eligible for mandate and payment.', owner: 'Buyer', icon: 'list' },
   { id: 12, title: 'eMandate approved', desc: 'Buyer consents to automated debit via eMandate flows.', owner: 'Buyer', icon: 'check' },
-  { id: 13, title: 'Easebuzz processes mandate', desc: 'Third-party mandate processor ingests the mandate request.', owner: 'Easebuzz', icon: 'cpu' },
-  { id: 14, title: 'NPCI validates', desc: 'NPCI runs validation and risk checks on mandate payload.', owner: 'NPCI', icon: 'shield' },
-  { id: 15, title: 'UMRN created', desc: 'Unique Mandate Reference Number returned for tracking.', owner: 'NPCI', icon: 'hash' },
+  { id: 13, title: 'Bank processes mandate', desc: 'Mandate request is ingested by the Bank.', owner: 'Bank', icon: 'cpu' },
+  { id: 14, title: 'Bank validates', desc: 'Bank runs validation and risk checks on mandate payload.', owner: 'Bank', icon: 'shield' },
+  { id: 15, title: 'UMRN created', desc: 'Unique Mandate Reference Number returned for tracking.', owner: 'Bank', icon: 'hash' },
   { id: 16, title: 'Scheduler waits & validates', desc: 'Platform schedules debit, performs pre-debit checks before execution.', owner: 'Platform', icon: 'clock' },
-  { id: 17, title: 'Debit executed & settlement', desc: 'Debit executes through banking rails and settlement completes.', owner: 'Bank', icon: 'credit-card' },
+  { id: 17, title: 'Debit executed & settlement', desc: 'Debit executes through bank rails and settlement completes.', owner: 'Bank', icon: 'credit-card' },
   { id: 18, title: 'ERP updated', desc: 'Final settlement, UTR mapping and reconciliation pushed to ERP.', owner: 'ERP', icon: 'database' }
 ]
 
-export const LANES = ['Seller','ERP','Platform','Identity','Buyer','Easebuzz','NPCI','Bank']
+export const LANES = ['Seller','ERP','Platform','Identity','Buyer','Bank']

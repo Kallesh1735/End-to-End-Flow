@@ -2,7 +2,7 @@ import React from 'react'
 import { ArrowDown } from 'lucide-react'
 
 const nodes = [
-  'Seller','C-Square ERP','Collection Platform','Buyer Authentication Layer','Buyer Dashboard','Easebuzz','NPCI / Bank','Settlement','ERP Sync'
+  'Seller','C-Square ERP','Collection Platform','Buyer Authentication Layer','Buyer Dashboard','Bank','Settlement','ERP Sync'
 ]
 
 export default function Ecosystem(){

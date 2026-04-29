@@ -24,7 +24,7 @@ function getCopy(b){
   const map = {
     'Faster Collection':'Accelerated time-to-cash with scheduled automated debits.',
     'Reduced Manual Work':'Significant reduction in reconciliation and collection ops.',
-    'Automated Payments':'Reliable payments via eMandate and NPCI orchestration.',
+    'Automated Payments':'Reliable payments via eMandate and Bank orchestration.',
     'ERP Expansion':'Enable non-ERP buyers without compromising seller systems.',
     'Better Visibility':'UTR/UMRN mapping for audit-ready reconciliations.',
     'Buyer Flexibility':'Multiple payment options and consented recurring debits.'

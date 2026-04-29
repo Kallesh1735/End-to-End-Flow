@@ -28,7 +28,7 @@ function getText(p){
     'Buyer identity mapping':'Match legal entity and KYC to the correct buyer profile.',
     'Secure request token':'Single-use tokens map invitation to invoice context securely.',
     'Duplicate prevention':'Idempotency checks prevent duplicate mandates or debits.',
-    'Mandate validation':'Third-party and NPCI verifications ensure mandate integrity.'
+    'Mandate validation':'Third-party Bank verifications ensure mandate integrity.'
   }
   return map[p]
 }
