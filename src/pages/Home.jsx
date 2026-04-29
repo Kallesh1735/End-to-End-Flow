@@ -1,6 +1,6 @@
 import React from 'react'
-import FlowPresentation from '../components/FlowPresentation'
+import ArchitectureBoard from '../components/ArchitectureBoard'
 
 export default function Home(){
-  return <FlowPresentation />
+  return <ArchitectureBoard />
 }
