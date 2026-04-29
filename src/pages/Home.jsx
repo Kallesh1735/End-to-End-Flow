@@ -1,6 +1,6 @@
 import React from 'react'
-import ArchitectureBoard from '../components/ArchitectureBoard'
+import VerticalArchitectureBoard from '../components/VerticalArchitectureBoard'
 
 export default function Home(){
-  return <ArchitectureBoard />
+  return <VerticalArchitectureBoard />
 }
