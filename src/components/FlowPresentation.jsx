@@ -131,6 +131,23 @@ const SOLUTION_POINTS = [
   'ERP sync keeps invoice, UMRN, UTR, and payment status aligned.'
 ]
 
+const STORYBOARD = [
+  { step: '01', title: 'Invoice created', note: 'Seller raises the invoice inside ERP.', icon: FileClock },
+  { step: '02', title: 'Request generated', note: 'Platform creates the secure collection request.', icon: Link2 },
+  { step: '03', title: 'Invitation sent', note: 'Buyer receives a secure invitation link.', icon: LayoutDashboard },
+  { step: '04', title: 'Buyer clicks link', note: 'The journey begins from the secure request.', icon: Search },
+  { step: '05', title: 'Login / OTP', note: 'Authentication happens before invoice access.', icon: ShieldCheck },
+  { step: '06', title: 'Identity matched', note: 'Buyer is matched to the request context.', icon: CheckCircle2 },
+  { step: '07', title: 'Dashboard opens', note: 'Pending invoices appear after verification.', icon: LayoutDashboard },
+  { step: '08', title: 'Mandate approved', note: 'Auto-debit permission is granted by the buyer.', icon: CheckCircle2 },
+  { step: '09', title: 'Bank validates', note: 'Bank validates mandate and returns approval.', icon: Landmark },
+  { step: '10', title: 'UMRN created', note: 'The mandate gets a unique reference.', icon: CheckCircle2 },
+  { step: '11', title: 'Scheduler waits', note: 'System waits until invoice due date.', icon: CalendarClock },
+  { step: '12', title: 'Debit executes', note: 'Debit is triggered through bank rails.', icon: Landmark },
+  { step: '13', title: 'Settlement complete', note: 'Payment is settled and reconciled.', icon: CheckCircle2 },
+  { step: '14', title: 'ERP synced', note: 'ERP receives the final updated status.', icon: FileClock }
+]
+
 function StepCard({ step, index }) {
   const Icon = step.icon
   return (
@@ -190,6 +207,43 @@ function ArrowLine() {
   )
 }
 
+function StoryboardCard({ item, index }) {
+  const Icon = item.icon
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 18, scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.45, delay: index * 0.04 }}
+      className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-[#10182f]/80 backdrop-blur-xl shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-indigo-500/10 opacity-80" />
+      <div className="relative aspect-[16/10] p-5 sm:p-6 flex flex-col justify-between">
+        <div className="flex items-center justify-between">
+          <span className="text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-cyan-200/80">Scene {item.step}</span>
+          <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] text-slate-300">Video frame</span>
+        </div>
+
+        <div className="flex flex-1 items-center justify-center py-6">
+          <div className="relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-full border border-white/10 bg-white/8 shadow-[0_0_0_12px_rgba(34,211,238,0.06)]">
+            <div className="absolute inset-0 rounded-full bg-cyan-400/10 blur-2xl" />
+            <Icon size={34} className="relative text-cyan-200 sm:hidden" />
+            <Icon size={44} className="relative hidden sm:block text-cyan-200" />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <div className="flex items-center gap-3">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/8 text-sm font-semibold text-white border border-white/10">{item.step}</span>
+            <h3 className="text-base sm:text-lg font-semibold text-white">{item.title}</h3>
+          </div>
+          <p className="text-sm sm:text-base text-slate-300 leading-6 max-w-xl">{item.note}</p>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
 export default function FlowPresentation() {
   return (
     <main className="min-h-screen bg-[#0B1120] text-white overflow-hidden">
@@ -244,6 +298,31 @@ export default function FlowPresentation() {
                 </React.Fragment>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pb-16 md:pb-24">
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-white">Animated End-to-End Storyboard</h2>
+            <p className="mt-2 max-w-3xl text-sm sm:text-base text-slate-400 leading-6 sm:leading-7">
+              A video-style sequence of visual frames that plays like a boardroom animation, showing the flow from invoice creation to ERP sync.
+            </p>
+          </div>
+
+          <div className="mb-6 flex items-center gap-3 text-[10px] sm:text-xs tracking-[0.22em] uppercase text-slate-500">
+            <span>Start</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-cyan-400/40 via-white/10 to-indigo-400/40" />
+            <span>Authenticate</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-white/10 via-white/10 to-white/10" />
+            <span>Pay</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-white/10 via-white/10 to-white/10" />
+            <span>Settle</span>
+          </div>
+
+          <div className="grid gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {STORYBOARD.map((item, index) => (
+              <StoryboardCard key={item.step + item.title} item={item} index={index} />
+            ))}
           </div>
         </section>
 
